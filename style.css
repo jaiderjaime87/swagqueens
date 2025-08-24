@@ -208,19 +208,17 @@ img {
     align-items: center;
   }
 
-  /* Imagen principal más pequeña en móvil */
+ 
   .slide img {
-    width: 80%;
-    max-height: 400px;
+    width: 100%;
+    max-width: 350px;  
+    height: auto;
     object-fit: contain;
   }
-}
 
-/* Imagen principal en pantallas grandes (PC) */
-@media (min-width: 769px) {
-  .slide img {
-    width: 60%;
-    max-width: 800px;
-    height: auto;
+  .texto {
+    position: static;
+    text-align: center;
+    margin-top: 15px;
   }
 }
