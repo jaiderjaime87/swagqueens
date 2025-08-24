@@ -193,3 +193,23 @@ header .carrito {
 
 /* Que las flechas queden por encima de todo y sean clicables siempre */
 .controles { z-index: 50; pointer-events: auto; }
+
+
+
+/* Para que las imágenes se adapten */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Ajustes de texto en pantallas pequeñas */
+@media (max-width: 768px) {
+  h1, h2, h3 {
+    font-size: 1.2em;
+  }
+
+  .contenedor {
+    flex-direction: column;
+    align-items: center;
+  }
+}
