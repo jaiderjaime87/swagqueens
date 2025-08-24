@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tienda Online</title>
+  <link rel="stylesheet" href="style.css">
+
+  <!-- Iconos redes sociales -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+  <!-- Navbar -->
+  <header>
+    <div class="logo">
+      <img src="logo1.png" alt="Logo de la tienda">
+    </div>
+    <nav>
+      <a href="#">Inicio</a>
+      <a href="#">Servicios</a>
+      <a href="#">Productos</a>
+      <a href="#">Contacto</a>
+    </nav>
+    <div class="carrito">🛒</div>
+  </header>
+
+  <!-- Carrusel -->
+  <section class="carrusel">
+    <div class="carrusel-contenedor">
+      
+      <div class="slide active">
+        <img src="RIg.png" alt="Camisetas Americanas">
+        <div class="texto">
+          <h2>OFERTAS ESPECIALES</h2>
+          <p>Estrena las mejores prendas</p>
+          <button>Información</button>
+        </div>
+      </div>
+
+      <div class="slide">
+        <img src="IMG 4.png" alt="Ropa 2">
+      </div>
+
+      <div class="slide">
+        <img src="IMG 3.png" alt="Ropa 3">
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Controles -->
+    <div class="controles">
+      <span class="prev">❮</span>
+      <span class="next">❯</span>
+    </div>
+  </section>
+
+  <!-- Productos -->
+  <section class="productos">
+    <div class="card">
+      <img src="img 1.png" alt="Producto 1">
+      <h3>CAMISETA ESTAMPADA</h3>
+      <p>$30.000</p>
+    </div>
+    <div class="card">
+      <img src="IMG 5.png" alt="Producto 2">
+      <h3>SHORT</h3>
+      <p>$55.000</p>
+    </div>
+    <div class="card">
+      <img src="b1.png" alt="Producto 3">
+      <h3>CAMISETA ACID WASH</h3>
+      <p>$50.000</p>
+    </div>
+    <div class="card">
+      <img src="b2.png" alt="Producto 4">
+      <h3>BLUSAS</h3>
+      <p>$30.000</p>
+    </div>
+  </section>
+
+  <!-- Barra inferior -->
+  <div class="info-bar">
+    <p>Síguenos y mantente al día con el estilo SWAG QUEENS</p>
+    <div class="social-icons">
+      <a href="https://www.instagram.com/swagqueens._?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank"><i class="fab fa-instagram"></i></a>
+      <a href="https://www.facebook.com/profile.php?id=61573896691253&sk=about" target="_blank"><i class="fab fa-facebook-f"></i></a>
+      <a href="https://tiktok.com" target="_blank"><i class="fab fa-tiktok"></i></a>
+    </div>
+  </div>
+
+  <!-- Script -->
+  <script src="script.js"></script>
+</body>
+</html>
+
+
+<script>
+// script.js
+document.addEventListener('DOMContentLoaded', () => {
+  const carrusel = document.querySelector('.carrusel');
+  const track = document.querySelector('.carrusel-contenedor');
+  const slides = Array.from(document.querySelectorAll('.carrusel-contenedor .slide'));
+  const prev = document.querySelector('.prev');
+  const next = document.querySelector('.next');
+
+  // Si algo no se encuentra, no seguimos (evita errores silenciosos)
+  if (!carrusel || !track || !slides.length || !prev || !next) return;
+
+  let index = 0;
+
+  function setSlideSizes() {
+    const width = carrusel.clientWidth;
+    slides.forEach(s => (s.style.width = `${width}px`)); // cada slide = ancho del carrusel
+    track.style.transform = `translateX(-${index * width}px)`; // recolocar al redimensionar
+  }
+
+  function goTo(i) {
+    const total = slides.length;
+    index = (i + total) % total; // loop infinito
+    const width = carrusel.clientWidth;
+    track.style.transform = `translateX(-${index * width}px)`;
+  }
+
+  // Eventos flechas
+  prev.addEventListener('click', () => goTo(index - 1));
+  next.addEventListener('click', () => goTo(index + 1));
+
+  // Auto-rotación
+  let timer = setInterval(() => goTo(index + 1), 5000);
+
+  // Pausar al interactuar
+  [prev, next, carrusel].forEach(el => {
+    el.addEventListener('mouseenter', () => clearInterval(timer));
+    el.addEventListener('mouseleave', () => {
+      clearInterval(timer);
+      timer = setInterval(() => goTo(index + 1), 5000);
+    });
+  });
+
+  // Inicializar tamaños y escuchar resize
+  setSlideSizes();
+  window.addEventListener('resize', setSlideSizes);
+});
+
+</script>
+
