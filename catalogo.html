@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Catálogo de Productos</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header role="banner">
+    <div class="header-inner wrap">
+      <div class="brand">
+        <img src="logo1.png" alt="SWAG QUEENS logo" onerror="this.style.display='none'">
+        <div>
+          <h1>SWAG QUEENS</h1>
+          <div class="muted small-txt">Urban Streetwear</div>
+        </div>
+      </div>
+
+      <nav class="desktop" aria-label="Navegación principal">
+        <a href="index.html#inicio">Inicio</a>
+        <a href="index.html#productos">Productos</a>
+        <a href="index.html#contacto">Contacto</a>
+      </nav>
+
+      <div class="icons">
+        <button class="icon-btn" id="open-cart" aria-label="Abrir carrito">🛒 <span id="cart-count" style="margin-left:6px;font-weight:700">0</span></button>
+        <button class="hamburger" id="open-menu" aria-expanded="false" aria-controls="mobile-menu">☰</button>
+      </div>
+    </div>
+
+    <!-- Mobile menu -->
+    <div id="mobile-menu" class="hidden mobile-menu">
+      <a href="index.html#inicio">Inicio</a>
+      <a href="index.html#productos">Productos</a>
+      <a href="index.html#contacto">Contacto</a>
+    </div>
+  </header>
+
+  <section class="section">
+    <h2>Catálogo Swag Queens </h2>
+    <div class="grid" id="catalog-grid">
+      <!-- Aquí agregas tus imágenes manualmente -->
+      <div class="card">
+        <div class="imgwrap"><img src="img 1.png" alt="Camiseta"></div>
+        <h3>Camisetas Estampadas</h3>
+        <p class="price">$30.000</p>
+      </div>
+
+      <div class="card">
+        <div class="imgwrap"><img src="beis.jpg" alt="Beisboleras"></div>
+        <h3>camisetas Beisboleras</h3>
+        <p class="price">$50.000</p>
+      </div>
+            <div class="card">
+        <div class="imgwrap"><img src="bol2.jpg" alt="Bolso"></div>
+        <h3>Bolso Grande</h3>
+        <h3>(Bordado)</h3>
+        <p class="price">$160.000</p>
+      </div>
+            <div class="card">
+        <div class="imgwrap"><img src="bol.jpg" alt="Bolso"></div>
+        <h3>Bolso pequeño </h3>
+        <h3>(Bordado)</h3>
+        <p class="price">$120.000</p>
+      </div>
+            <div class="card">
+        <div class="imgwrap"><img src="IMG 5.png" alt="Short"></div>
+        <h3>Short </h3>
+        <p class="price">$55.000</p>
+      </div>
+
+                  <div class="card">
+        <div class="imgwrap"><img src="Blu.jpg" alt="Blusas"></div>
+        <h3>Camisetas Cortas Estampada</h3>
+        <p class="price">$30.000</p>
+      </div>
+
+             <div class="card">
+        <div class="imgwrap"><img src="conjunto.jpg" alt="conjunto"></div>
+        <h3>Conjuntos</h3>
+        <p class="price">$0.000</p>
+      </div>
+
+             <div class="card">
+        <div class="imgwrap"><img src="playera.jpg" alt="Playera"></div>
+        <h3>Playeras Unicolor</h3>
+        <p class="price">$30.000</p>
+      </div>
+
+             <div class="card">
+        <div class="imgwrap"><img src="top.jpg" alt="top"></div>
+        <h3>Top Estampado</h3>
+        <p class="price">$25.000</p>
+      </div>
+
+      
+             <div class="card">
+        <div class="imgwrap"><img src="f1.png" alt="top"></div>
+        <h3>Top Estampado</h3>
+        <p class="price">$60.000</p>
+      </div>
+
+
+    
+             <div class="card">
+        <div class="imgwrap"><img src="top.jpg" alt="top"></div>
+        <h3>Top Estampado</h3>
+        <p class="price">$25.000</p>
+      </div>
+
+
+      
+             <div class="card">
+        <div class="imgwrap"><img src="top.jpg" alt="top"></div>
+        <h3>Top Estampado</h3>
+        <p class="price">$25.000</p>
+      </div>
+
+
+
+      
+             <div class="card">
+        <div class="imgwrap"><img src="top.jpg" alt="top"></div>
+        <h3>Top Estampado</h3>
+        <p class="price">$25.000</p>
+      </div>
+
+
+      
+
+             <div class="card">
+        <div class="imgwrap"><img src="top.jpg" alt="top"></div>
+        <h3>Top Estampado</h3>
+        <p class="price">$25.000</p>
+      </div>
+      
+
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-inner">
+      <span>© <span id="year"></span> Swag queens</span>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
