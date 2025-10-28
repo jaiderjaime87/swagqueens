@@ -319,6 +319,26 @@ header {
     .hamburger { font-size: 18px; }
   }
 
+  /* Cobertura para dispositivos móviles más anchos / pequeñas tablets */
+  @media (max-width:900px) {
+    /* Mostrar sólo el logo (sin el texto) y reconfigurar header */
+    .brand { display:flex; align-items:center; gap:8px; }
+    .brand h1 { display: none; }
+    .brand .small-txt { display: none; }
+    .brand img { height:40px; }
+
+    /* Rejilla del header con 3 columnas: logo + nav + icons */
+    .header-inner { grid-template-columns: auto 1fr auto; padding: 10px 12px; height: 64px; }
+
+    /* Mostrar y centrar el nav en anchos intermedios */
+    nav.desktop { display: flex; gap: 10px; justify-self: center; margin: 0 auto; }
+
+    /* Ajustes de iconos para que no tapen elementos y estén centrados */
+    .icons { padding: 4px 8px; margin-right: 6px; }
+    /* Ocultar el botón del carrito en vista móvil/tablet para simplificar el header */
+    #open-cart { display: none; }
+  }
+
   /* Helpers */
   .muted{color:var(--muted)}
   .hidden{display:none}
