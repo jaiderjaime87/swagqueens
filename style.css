@@ -36,7 +36,8 @@ header {
   background: #000; /* Fondo negro sólido */
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   width: 100%;
-  overflow: hidden; /* evita que elementos hijos provoquen scroll horizontal */
+  /* quitar overflow:hidden para no recortar dropdowns absolutos */
+  overflow: visible;
 }
 
   .header-inner {
@@ -97,15 +98,21 @@ header {
     transform:translateY(-2px);
   }
 
+  /* Dropdown positioning helper: allow menu to open upward when there's no space below */
+  .menu-dropdown{position:relative}
+  .menu-dropdown .dropdown-content{z-index:1400}
+  .menu-dropdown.up .dropdown-content{top:auto !important;bottom:100% !important}
+
   /* Posicionamiento del contenedor de iconos (carrito, menú) */
   .icons{
     display:flex;
     align-items:center;
-    gap:12px;
-    position: absolute; /* respecto al header (sticky) */
-    right: 12px; /* pegado al borde derecho de la ventana */
-    top: 8px;
+    gap:10px;
+    /* usar el grid del header para colocar los iconos en la columna derecha */
+    justify-self: end;
     z-index: 130;
+    padding: 4px 8px; /* espacio interior para que se vean centrados */
+    margin-right: 6px; /* mover ligeramente hacia el centro para mejor alineación visual */
   }
 
   .icon-btn{
@@ -129,6 +136,9 @@ header {
     color:#fff;
     font-size:20px;
   }
+
+/* Ocultar las tres barras (hamburger) en todas las vistas cuando el usuario pidió eliminarlo */
+.hamburger { display: none !important; }
 
   /* Hero / Carousel */
   .hero{display:grid;grid-template-columns:1fr 520px;gap:30px;align-items:center;padding:40px 20px}
@@ -155,6 +165,9 @@ header {
   .section{padding:46px 20px}
   .section h2{font-size:24px;margin:0 0 12px;color:#000}
   .section p{color:var(--muted);margin:0 0 18px}
+
+  /* Asegurar que los anclajes se muestren debajo del header sticky */
+  #inicio, #productos, #ofertas, #contacto { scroll-margin-top: 88px; }
 
   /* Grid productos */
   .grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
@@ -283,6 +296,27 @@ header {
     /* Mostrar el menú móvil como overlay para evitar empujar el contenido */
     .mobile-menu{position:absolute;top:72px;left:0;right:0;display:none}
     .mobile-menu:not(.hidden){display:block}
+  }
+
+  /* Ajustes móviles adicionales: ocultar el nombre de la marca y compactar elementos para que los botones se vean completos */
+  @media (max-width:640px) {
+    /* Ocultar nombre textual */
+    .brand h1 { display: none; }
+    .brand .small-txt { display: none; }
+
+    /* Logo más compacto */
+    .brand img { height: 40px; min-width: 40px; }
+
+    /* Ajustes del header para dar más espacio a enlaces */
+    .header-inner { grid-template-columns: auto 1fr auto; padding: 10px 12px; height: 64px; }
+
+    /* Nav más compacto y con texto que recorta con ellipsis si falta espacio */
+    nav.desktop { gap: 8px; padding-right: 8px; min-width: 0; justify-self: center; }
+    nav.desktop a { padding: 6px 8px; font-size: 15px; max-width: 140px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+
+    /* Iconos más pequeños para evitar solapamientos */
+    .icon-btn { padding: 6px; border-radius: 8px; }
+    .hamburger { font-size: 18px; }
   }
 
   /* Helpers */
