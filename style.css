@@ -12,6 +12,9 @@
 *{box-sizing:border-box}
 html,body{height:100%}
 
+/* Evitar scroll horizontal accidental en móviles */
+html, body { width:100%; overflow-x:hidden; }
+
 body{
   margin:0;
   font-family:Montserrat, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
@@ -33,6 +36,7 @@ header {
   background: #000; /* Fondo negro sólido */
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   width: 100%;
+  overflow: hidden; /* evita que elementos hijos provoquen scroll horizontal */
 }
 
   .header-inner {
@@ -43,6 +47,7 @@ header {
     padding: 14px 12px; /* padding más uniforme */
     width: 100%;
     margin: 0;
+    height:72px;
   }
 
 
@@ -128,19 +133,19 @@ header {
   /* Hero / Carousel */
   .hero{display:grid;grid-template-columns:1fr 520px;gap:30px;align-items:center;padding:40px 20px}
   .hero-left{max-width:640px}
-  .eyebrow{color:var(--muted);font-weight:600;letter-spacing:1px;margin-bottom:14px}
-  .hero-title{font-family:'Playfair Display', serif;font-size:44px;color:#000;margin:0 0 10px}
-  .hero-sub{color:var(--muted);font-size:16px;margin-bottom:20px}
-  .cta-row{display:flex;gap:12px}
+  .eyebrow{color:var(--muted);font-weight:600;letter-spacing:1px;margin-bottom:14px;text-align:center}
+  .hero-title{font-family:'Playfair Display', serif;font-size:56px;line-height:1.12;color:#000;margin:0 0 10px;text-align:center;font-weight:700;letter-spacing:-0.3px}
+  .hero-sub{color:var(--muted);font-size:18px;margin-bottom:20px;text-align:center}
+  .cta-row{display:flex;gap:12px;justify-content:center}
   .btn{background:var(--accent);color:#fff;border:none;padding:12px 18px;border-radius:10px;font-weight:700;cursor:pointer}
-  .btn.ghost{background:transparent;border:1px solid rgba(0,0,0,0.15);color:#000}
-  .btn.ghost:hover{background:#f4f4f4}
+  .btn.ghost{background:#fff;border:1px solid rgba(0,0,0,0.15);color:#000}
+  .btn.ghost:hover{background:#fafafa}
 
   /* Carousel box */
   .hero-right{position:relative}
-  .carousel{overflow:hidden;border-radius:20px;background:linear-gradient(180deg,rgba(0,0,0,0.03), transparent);padding:12px}
-  .slides{display:flex;transition:transform .6s cubic-bezier(.2,.9,.2,1);gap:12px}
-  .slide{min-width:496px;height:420px;border-radius:12px;background:linear-gradient(180deg,rgba(0,0,0,0.05),transparent);display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
+  .carousel{position:relative;overflow:hidden;border-radius:20px;background:linear-gradient(180deg,rgba(0,0,0,0.03), transparent);padding:12px;max-width:520px;margin:0 auto}
+  .slides{display:flex;transition:transform .6s cubic-bezier(.2,.9,.2,1);gap:0}
+  .slide{min-width:100%;height:360px;border-radius:12px;background:linear-gradient(180deg,rgba(0,0,0,0.05),transparent);display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
   .slide img{max-width:100%;max-height:100%;object-fit:cover;display:block}
   .carousel-nav{position:absolute;right:16px;bottom:16px;display:flex;gap:8px}
   .dot{width:10px;height:10px;border-radius:50%;background:rgba(0,0,0,0.1);cursor:pointer}
@@ -247,13 +252,27 @@ header {
     .video-card{aspect-ratio:4/5}
     .video-card video{height:100%}
   }
+
+  /* Más grande en desktop amplio */
+  @media (min-width: 992px){
+    .hero-title{font-size:72px}
+  }
+  @media (max-width: 991.98px){
+    .slide{height:300px}
+  }
+
+
+  
   @media (max-width:640px){
-    nav.desktop{display:none}
-    .footer-center{justify-content:flex-start}
+  /* Mantener el nav centrado en móvil sin usar transform/absolute para evitar solapamientos */
+  nav.desktop{display:flex;gap:12px;justify-self:center}
+  .footer-center{justify-content:flex-start}
     .hamburger{display:block}
     .grid{grid-template-columns:1fr}
-    .hero-title{font-size:28px}
-    .slide{min-width:320px;height:300px}
+    .hero-title{font-size:34px;text-align:center}
+    .hero-sub{text-align:center}
+    /* Evitar que se vean dos slides en móvil */
+    .slide{min-width:100%;height:300px}
     .card .imgwrap{height:200px}
     .cart-drawer{width:92%;right:4%;top:72px}
     /* En móvil volvemos a flujo normal: icons dentro del header sin absolute */
@@ -261,12 +280,26 @@ header {
     .offers-videos{grid-template-columns:1fr}
     .video-card{aspect-ratio:4/5}
     .video-card video{height:100%}
+    /* Mostrar el menú móvil como overlay para evitar empujar el contenido */
+    .mobile-menu{position:absolute;top:72px;left:0;right:0;display:none}
+    .mobile-menu:not(.hidden){display:block}
   }
 
   /* Helpers */
   .muted{color:var(--muted)}
   .hidden{display:none}
   .small-txt{font-size:12px}
+
+  /* --- Social buttons (WhatsApp / Instagram / Facebook) --- */
+  .social-strip{padding:28px 12px;background:linear-gradient(180deg, rgba(0,0,0,0.02), rgba(230,57,70,0.03));}
+  .social-row{display:flex;gap:32px;flex-wrap:wrap;justify-content:center}
+  .social-btn{display:flex;align-items:center;gap:12px;min-width:340px;max-width:520px;justify-content:center;text-decoration:none;border-radius:22px;padding:16px 28px;font-weight:700;color:#fff;box-shadow:0 10px 22px rgba(0,0,0,0.12);transition:transform .18s ease, box-shadow .18s}
+  .social-btn:hover{transform:translateY(-2px);box-shadow:0 14px 30px rgba(0,0,0,0.16)}
+  .social-btn .icon{width:22px;height:22px;display:inline-flex}
+  .social-btn .icon img{width:22px;height:22px;display:block}
+  .social-btn.wa{background:#4eed26}
+  .social-btn.ig{background:#d30a40}
+  .social-btn.fb{background:#173dd4}
 
 
   /* CONTACTO — Botones bonitos */
@@ -334,3 +367,29 @@ header {
 .size.active{background:var(--accent);color:#fff;border-color:var(--accent)}
 
 .cart-opts{font-size:13px;color:var(--muted);margin-top:4px}
+
+/* Login page styles */
+.login-page{min-height:calc(100vh - 200px);display:flex;align-items:center;justify-content:center;padding:40px 20px}
+.login-container{background:#fff;border-radius:14px;padding:32px;max-width:420px;width:100%;box-shadow:0 10px 40px rgba(0,0,0,0.1);border:1px solid rgba(0,0,0,0.06)}
+.login-container h2{margin:0 0 8px;font-size:24px}
+.login-form{margin-top:20px}
+.form-group{margin-bottom:18px}
+.form-group label{display:block;font-weight:600;margin-bottom:6px;color:#111}
+.form-group input{width:100%;padding:12px;border-radius:10px;border:1px solid rgba(0,0,0,0.1);font-size:16px;font-family:inherit}
+.form-group input:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 3px rgba(230,57,70,0.1)}
+.btn-primary{width:100%;margin-top:10px}
+.form-footer{margin-top:16px;text-align:center;font-size:14px}
+.small-link{color:var(--accent);text-decoration:none}
+.small-link:hover{text-decoration:underline}
+.login-message{margin-top:16px;padding:12px;border-radius:8px;text-align:center;font-weight:600}
+.login-message.success{background:#d4edda;color:#155724;border:1px solid #c3e6cb}
+.login-message.error{background:#f8d7da;color:#721c24;border:1px solid #f5c6cb}
+
+/* Auth modal styles (Google Sign-In) */
+.auth-overlay{position:fixed;inset:0;background:rgba(0,0,0,0.85);z-index:9999;display:flex;align-items:center;justify-content:center;backdrop-filter:blur(4px)}
+.auth-modal{background:#fff;border-radius:16px;padding:40px;max-width:450px;width:92%;box-shadow:0 20px 60px rgba(0,0,0,0.3);text-align:center}
+.auth-header h2{margin:12px 0 8px;font-size:26px;color:#000}
+.auth-logo{height:60px;width:auto;margin-bottom:12px;border-radius:8px}
+.auth-body{margin-top:24px;display:flex;flex-direction:column;align-items:center;gap:16px}
+#g-signin-button{margin:0 auto}
+.auth-note{font-size:13px;margin-top:8px}

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Catálogo Hombre - SWAG HOUSE</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header role="banner">
+    <div class="header-inner wrap">
+      <div class="brand">
+        <img src="SH.jpg" alt="SWAG HOUSE logo" onerror="this.style.display='none'">
+        <div>
+          <h1>SWAG HOUSE</h1>
+          <div class="muted small-txt">Urban Streetwear</div>
+        </div>
+      </div>
+
+      <nav class="desktop" aria-label="Navegación principal">
+        <a href="hombre.html#inicio">Inicio</a>
+        <a href="index.html#productos">Mujer</a>
+        <a href="#hombre">Hombre</a>
+        <a href="index.html#contacto">Contacto</a>
+      </nav>
+
+      <div class="icons">
+        <button class="icon-btn" id="open-cart" aria-label="Abrir carrito">🛒 <span id="cart-count" style="margin-left:6px;font-weight:700">0</span></button>
+        <button class="hamburger" id="open-menu" aria-expanded="false" aria-controls="mobile-menu">☰</button>
+      </div>
+    </div>
+
+    <!-- Mobile menu -->
+    <div id="mobile-menu" class="hidden mobile-menu">
+      <a href="hombre.html#inicio">Inicio</a>
+      <a href="index.html#productos">Mujer</a>
+      <a href="#hombre">Hombre</a>
+      <a href="index.html#contacto">Contacto</a>
+    </div>
+  </header>
+
+  <section class="section">
+    <h2>Catálogo para Hombre</h2>
+    <div class="grid" id="catalog-grid">
+      <!-- Productos para hombre -->
+      <div class="card">
+        <div class="imgwrap"><img src="ESTAMPSH.png" alt="Camiseta Estampada"></div>
+        <h3>Camiseta Básica Estampada</h3>
+        <p class="price">1 X 30.000</p>
+          <p class="price">5 X 100.000</p>
+            <p class="price">12 X 204.000</p>
+      </div>
+
+      <div class="card">
+        <div class="imgwrap"><img src="ALT.png" alt="Oversize Altorelieve"></div>
+        <h3>Oversize Altorelieve</h3>
+        <p class="price">1 X 50.000</p>
+        <p class="price">6 X 210.000</p>
+        <p class="price">12  X 360.000</p>
+      </div>
+
+      <div class="card">
+        <div class="imgwrap"><img src="UNI.png" alt="Playera Unicolor"></div>
+        <h3>Playera Unicolor</h3>
+        <p class="price">1 X 25.000</p>
+          <p class="price">3 X 60.000</p>
+            <p class="price">6 X 100.000</p>
+              <p class="price">12 X 192.000</p>
+      </div>
+
+      <div class="card">
+        <div class="imgwrap"><img src="BOLS.png" alt="Bolso Deportivo"></div>
+        <h3>Bolso Deportivo</h3>
+        <p class="price">1 X 80.000</p>
+      </div>
+
+      <div class="card">
+        <div class="imgwrap"><img src="beis1.jpg" alt="Beisbolera"></div>
+        <h3>Beisbolera</h3>
+        <p class="price">$55.000</p>
+      </div>
+
+      <div class="card">
+        <div class="imgwrap"><img src="playera.jpg" alt="Playera Sport"></div>
+        <h3>Playera Sport</h3>
+        <p class="price">$42.000</p>
+      </div>
+
+      <div class="card">
+        <div class="imgwrap"><img src="top.jpg" alt="Top Deportivo"></div>
+        <h3>Top Deportivo</h3>
+        <p class="price">$38.000</p>
+      </div>
+
+      <div class="card">
+        <div class="imgwrap"><img src="conjunto.jpg" alt="Conjunto"></div>
+        <h3>Conjunto Deportivo</h3>
+        <p class="price">$95.000</p>
+      </div>
+
+      <div class="card">
+        <div class="imgwrap"><img src="IMG 6.png" alt="Camiseta Básica"></div>
+        <h3>Camiseta Básica</h3>
+        <p class="price">$35.000</p>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <span>© <span id="year"></span> Swag House</span>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

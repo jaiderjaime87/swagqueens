@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>SWAG HOUSE - Hombre</title>
+  <meta name="description" content="Ropa urbana para hombre — camisetas, jeans, chaquetas y más" />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header role="banner">
+    <div class="header-inner wrap">
+      <div class="brand">
+        <img src="SH.jpg" alt="SWAG HOUSE logo" onerror="this.style.display='none'">
+        <div>
+          <h1>SWAG HOUSE</h1>
+          <div class="muted small-txt"></div>
+        </div>
+      </div>
+      <nav class="desktop" aria-label="Navegación principal">
+        <a href="index.html#inicio">Inicio</a>
+        <a href="index.html#productos">Mujer</a>
+        <a href="#hombre">Hombre</a>
+        <a href="index.html#contacto">Contacto</a>
+      </nav>
+      <div class="icons">
+        <button class="icon-btn" id="open-cart" aria-label="Abrir carrito">🛒 <span id="cart-count" style="margin-left:6px;font-weight:700">0</span></button>
+        <button class="hamburger" id="open-menu" aria-expanded="false" aria-controls="mobile-menu">☰</button>
+      </div>
+    </div>
+    <!-- Menú móvil -->
+    <div id="mobile-menu" class="hidden mobile-menu">
+      <a href="index.html#inicio">Inicio</a>
+      <a href="index.html#productos">Mujer</a>
+      <a href="#hombre">Hombre</a>
+      <a href="index.html#contacto">Contacto</a>
+    </div>
+  </header>
+  <main>
+    <!-- Hero Section estilo masculino -->
+    <section id="inicio" class="hero wrap">
+      <div class="hero-left">
+        <div class="eyebrow">Swag House</div>
+        <h2 class="hero-title">¡Luce siempre tu mejor estilo con Swag House!</h2>
+        <p class="hero-sub">Camisetas, jeans, conjuntos y bolsos — Entregas en Colombia.</p>
+        <div class="cta-row">
+          <a href="catalogo-hombre.html"><button class="btn" id="ver-catalogo-hombre">Ver catálogo</button></a>
+          <a href="ofertas.html"><button class="btn ghost" id="ver-ofertas">Ofertas</button></a>
+        </div>
+      </div>
+
+      <div class="hero-right">
+        <div class="carousel">
+          <div class="slides" id="slides">
+            <div class="slide"><img src="SH1.png" alt="Camiseta Estampada"></div>
+            <div class="slide"><img src="SH2.png" alt="Oversize Altorelieve"></div>
+            <div class="slide"><img src="UNI.png" alt="Playera Unicolor"></div>
+          </div>
+          <div class="carousel-nav" id="carousel-nav"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Productos Hombre -->
+    <section id="hombre" class="section wrap">
+      <h2>Productos para Hombre</h2>
+      <p class="muted">Descubre la nueva colección para ellos: camisetas, jeans, conjuntos y más.</p>
+      <div class="grid" id="men-grid">
+        <div class="card">
+          <div class="imgwrap"><img src="ESTAMPSH.png" alt="Camiseta Hombre"></div>
+          <h3>CAMISETA BASICA ESTAMPADA</h3>
+
+        </div>
+        <div class="card">
+          <div class="imgwrap"><img src="ALT.png" alt="ALTORELIEVE"></div>
+          <h3>OVERSIZE ALTORELIEVE</h3>
+  
+        </div>
+        <div class="card">
+          <div class="imgwrap"><img src="UNI.png" alt="Playera Hombre"></div>
+          <h3>PLAYERA UNICOLOR</h3>
+          
+        </div>
+        <div class="card">
+          <div class="imgwrap"><img src="BOLS.png" alt="Bolso Hombre"></div>
+          <h3>BOLSO DEPORTIVO</h3>
+
+        </div>
+      </div>
+    </section>
+  </main>
+  <!-- Botones de redes sociales -->
+  <section class="section wrap">
+    <div class="social-strip">
+      <div class="social-row">
+        <a class="social-btn wa" href="https://wa.me/573XXXXXXXXX" target="_blank" rel="noopener">
+          <span class="icon"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/whatsapp.svg" alt="WhatsApp"></span>
+          WhatsApp
+        </a>
+        <a class="social-btn ig" href="https://instagram.com/tuusuario" target="_blank" rel="noopener">
+          <span class="icon"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/instagram.svg" alt="Instagram"></span>
+          Instagram
+        </a>
+        <a class="social-btn fb" href="https://facebook.com/tuusuario" target="_blank" rel="noopener">
+          <span class="icon"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/facebook.svg" alt="Facebook"></span>
+          Facebook
+        </a>
+      </div>
+    </div>
+  </section>
+  <footer class="footer">
+    <div class="footer-inner wrap">
+      <div class="footer-left"></div>
+      <div class="footer-center">
+        <div class="contact-inline">
+          <a class="contact-link" href="https://wa.me/573XXXXXXXXX" target="_blank">📱 WhatsApp: +57 3XX XXX XXXX</a>
+          <a class="contact-link" href="mailto:contacto@swagqueens.com">✉️ contacto@swagqueens.com</a>
+          <span class="contact-link">📍 Dirección: Calle 123 #45-67, Ciudad</span>
+          <span class="contact-link">🕒 Horario: Lun-Sab 9am-7pm</span>
+        </div>
+      </div>
+      <div class="footer-right">
+        <div class="muted small-txt">Entregas en Colombia</div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Script del carrusel -->
+  <script>
+  // Carrusel funcional y menú móvil
+  document.addEventListener("DOMContentLoaded", () => {
+    // Carrusel
+    const slides = document.querySelector("#slides");
+    const nav = document.querySelector("#carousel-nav");
+    const slideElements = document.querySelectorAll(".slide");
+    const totalSlides = slideElements.length;
+    let current = 0;
+    let interval;
+
+    // Limpiar nav antes de crear puntos (evita duplicados en recarga)
+    if (nav) nav.innerHTML = "";
+    // Crear indicadores (puntos)
+    for (let i = 0; i < totalSlides; i++) {
+      const dot = document.createElement("button");
+      dot.classList.add("dot");
+      if (i === 0) dot.classList.add("active");
+      dot.setAttribute("aria-label", `Ir a la imagen ${i + 1}`);
+      dot.addEventListener("click", () => goToSlide(i));
+      nav.appendChild(dot);
+    }
+
+    const dots = nav.querySelectorAll(".dot");
+
+    function goToSlide(index) {
+      current = index;
+      const offset = -index * 100;
+      slides.style.transform = `translateX(${offset}%)`;
+      dots.forEach(dot => dot.classList.remove("active"));
+      dots[current].classList.add("active");
+      clearInterval(interval);
+      startAutoPlay();
+    }
+
+    function nextSlide() {
+      current = (current + 1) % totalSlides;
+      goToSlide(current);
+    }
+
+    function startAutoPlay() {
+      interval = setInterval(nextSlide, 3500);
+    }
+
+    startAutoPlay();
+
+    // Menú móvil
+    const openMenu = document.getElementById('open-menu');
+    const mobileMenu = document.getElementById('mobile-menu');
+    if(openMenu && mobileMenu){
+      openMenu.addEventListener('click', ()=>{
+        const shown = !mobileMenu.classList.contains('hidden');
+        mobileMenu.classList.toggle('hidden', shown);
+        openMenu.setAttribute('aria-expanded', String(!shown));
+      });
+    }
+    // Cerrar menú móvil al hacer click en un enlace
+    document.querySelectorAll('#mobile-menu a').forEach(a=>{
+      a.addEventListener('click', ()=>{
+        if(mobileMenu && !mobileMenu.classList.contains('hidden')) mobileMenu.classList.add('hidden');
+      });
+    });
+  });
+  </script>
+</body>
+</html>
