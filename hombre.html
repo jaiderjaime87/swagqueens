@@ -23,7 +23,7 @@
         <a href="index.html#inicio">Inicio</a>
         <a href="index.html#productos">Mujer</a>
         <a href="#hombre">Hombre</a>
-        <a href="index.html#contacto">Contacto</a>
+        <a href="#contacto-hombre">Contacto</a>
       </nav>
       <div class="icons">
         <button class="icon-btn" id="open-cart" aria-label="Abrir carrito">🛒 <span id="cart-count" style="margin-left:6px;font-weight:700">0</span></button>
@@ -35,7 +35,7 @@
       <a href="index.html#inicio">Inicio</a>
       <a href="index.html#productos">Mujer</a>
       <a href="#hombre">Hombre</a>
-      <a href="index.html#contacto">Contacto</a>
+      <a href="#contacto-hombre">Contacto</a>
     </div>
   </header>
   <main>
@@ -48,7 +48,7 @@
           <p class="hero-sub text-center">Camisetas, jeans, conjuntos y bolsos — Entregas en Colombia.</p>
           <div class="cta-row mb-3 justify-content-center">
             <a href="catalogo-hombre.html" class="btn me-2" id="ver-catalogo-hombre">Ver catálogo</a>
-            <a href="ofertas.html" class="btn ghost" id="ver-ofertas">Ofertas</a>
+            <a href="ofertas-hombre.html" class="btn ghost" id="ver-ofertas">Ofertas</a>
           </div>
         </div>
 
@@ -92,7 +92,7 @@
           </div>
         </div>
         <div class="col-12 col-sm-6 col-lg-3">
-          <div class="card h-100">
+          <div class="card h-100" data-no-sizes="true">
             <div class="imgwrap"><img src="BOLS.png" alt="Bolso Hombre"></div>
             <h3>BOLSO DEPORTIVO</h3>
             <p class="price"></p>
@@ -124,7 +124,7 @@
     <div class="footer-inner wrap">
       <div class="footer-left"></div>
       <div class="footer-center">
-        <div class="contact-inline">
+        <div class="contact-inline" id="contacto-hombre">
           <a class="contact-link" href="https://wa.me/573XXXXXXXXX" target="_blank">📱 WhatsApp: +57 3XX XXX XXXX</a>
           <a class="contact-link" href="mailto:contacto@swagqueens.com">✉️ contacto@swagqueens.com</a>
           <span class="contact-link">📍 Dirección: Calle 123 #45-67, Ciudad</span>
@@ -203,5 +203,7 @@
     });
   });
   </script>
+  <!-- Main script (modal, carrito, interacción) -->
+  <script src="scrip.js"></script>
 </body>
 </html>
